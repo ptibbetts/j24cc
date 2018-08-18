@@ -40,7 +40,7 @@ use Cake\Network\Exception\NotFoundException;
     <p>✅ Aim to store 500+ records (duplicates with a method of distinguishing between records is acceptable if an API is rate limited) into multiple tables</p>
 
     <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="#">View Source</a>
+    <a class="btn btn-outline-primary" href="https://github.com/ptibbetts/j24cc/blob/master/cake/src/Controller/PagesController.php#L78-L82" target="_blank">View Source</a>
   </div>
 
   <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
@@ -53,7 +53,7 @@ use Cake\Network\Exception\NotFoundException;
     <p>✅ Build a SQL statement that iterates over each record, modifies it, and stores it to a new table</p>
 
     <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="">View Source</a>
+    <a class="btn btn-outline-primary" href="https://github.com/ptibbetts/j24cc/blob/master/cake/src/Controller/PagesController.php#L84-L104" target="_blank">View Source</a>
   </div>
 
   <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
@@ -66,7 +66,7 @@ use Cake\Network\Exception\NotFoundException;
     <p>✅ Display the modified data within a Bootstrap interface, that makes use of at least one piece of custom JavaScript developed by you</p>
 
     <hr class="half-rule">
-    <a href="#" class="btn btn-outline-primary">View Source</a>
+    <a href="https://github.com/ptibbetts/j24cc/blob/master/cake/src/Template/Pages/home.ctp#L73-L133" class="btn btn-outline-primary" target="_blank">View Source</a>
   </div>
 </div>
 
