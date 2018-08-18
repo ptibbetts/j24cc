@@ -10,7 +10,7 @@ Installation is covered in `/ansible/README.md`.
 ## Deployment
 > ●	Provide a README file that succinctly explains how to deploy, install, and run the project
 
-Deployment is coverd in `/ansible/README.md`.
+Deployment is covered in `/ansible/README.md`.
 
 ## Testing
 > ●	Show how you have given testing due consideration throughout the task
@@ -28,7 +28,7 @@ The index page checks the `modified` date of the latest entry into the `top500_u
 
 I would have created an index on the information retrieved from the `games` table however that includes a `text` field and so it wouldn't be able to fit all the required information.
 
-As the app is (at the moment) only concerned with the latest 500+ games each game is checked to see if it already exists in the database before adding, using a unique index on the `slug` of the game. If the number of games the app is converned withe
+As the app is (at the moment) only concerned with the latest 500+ games each game is checked to see if it already exists in the database before adding, using a unique index on the `slug` of the game. If the number of games the app is concerned with
  were to grow then it would make more sense to remove this check from each game and consider pruning the database at a set time each day to remove duplicates.
 
 ## Notes
