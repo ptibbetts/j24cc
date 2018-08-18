@@ -33,7 +33,7 @@ class WebsitesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('game_websites');
+        $this->setTable('websites');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 

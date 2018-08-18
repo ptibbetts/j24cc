@@ -12,7 +12,7 @@ class CreateWebsitesTable extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('game_websites');
+        $table = $this->table('websites');
 
         $table->addColumn('game_id', 'integer', [
               'default' => null,

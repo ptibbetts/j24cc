@@ -91,10 +91,11 @@ class IGDBComponent extends Component
 
             if (isset($game->websites)) {
                 foreach ($game->websites as $website) {
-                    $ws = $games_collection->Websites->newEntity();
-                    $ws->url = $website->url;
+                    $ws = $games_collection->Websites->newEntity([
+                        'url' => $website->url
+                    ]);
 
-                    $websites[] = $ws;
+                    array_push($websites, $ws);
                 }
             }
 
@@ -106,10 +107,14 @@ class IGDBComponent extends Component
                 'summary' => isset($game->summary) ? mb_convert_encoding($game->summary, "UTF8") : null,
                 'rating' => isset($game->rating) ? $game->rating : null,
                 'cover' => isset($game->cover) && isset($game->cover->url) ? $game->cover->cloudinary_id : null,
-                'websites' => $websites
             ]);
 
             $games_collection->save($entity);
+
+            if ($websites) {
+                $entity->websites = $websites;
+                $games_collection->save($entity);
+            }
         }
     }
 
