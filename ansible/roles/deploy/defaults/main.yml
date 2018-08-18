@@ -47,7 +47,7 @@ project_current_path: "{{ project.current_path | default('current') }}"
 
 
 # Helpers
-project: "{{ laravel_apps[site] }}"
+project: "{{ cake_apps[site] }}"
 project_root: "{{ www_root }}/{{ site }}"
 project_local_path: "{{ (lookup('env', 'USER') == 'vagrant') | ternary(project_root + '/' + project_current_path, project.local_path) }}"
 

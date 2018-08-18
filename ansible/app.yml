@@ -1,5 +1,5 @@
 ---
-- name: "Laravel: Install LEMP Stack with PHP 7.1"
+- name: "Cake: Install LEMP Stack with PHP 7.2"
   hosts: web:&{{ env }}
   become: yes
   roles:
@@ -12,4 +12,4 @@
     - { role: logrotate, tags: [logrotate] }
     - { role: composer, tags: [composer] }
     - { role: letsencrypt, tags: [letsencrypt], when: apps_using_letsencrypt | count }
-    - { role: laravel-setup-code, tags: [laravel, laravel-setup-code] }
+    - { role: cake-setup-code, tags: [cake, cake-setup-code] }

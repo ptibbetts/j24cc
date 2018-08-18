@@ -1,5 +1,5 @@
 ---
-- name: "Laravel Server: Install LEMP Stack with PHP 7.1, MariaDB and Redis"
+- name: "Cake Server: Install LEMP Stack with PHP 7.2 & MariaDB"
   hosts: development
   become: yes
   remote_user: vagrant
@@ -14,18 +14,10 @@
     - { role: mariadb-server, tags: [mariadb, mariadb-server] }
     - { role: mailhog, tags: [mailhog, mail] }
     - { role: php, tags: [php] }
-    - { role: redis, tags: [redis] }
-    - { role: supervisor, tags: [supervisor] }
     - { role: xdebug, tags: [php, xdebug] }
     - { role: nginx, tags: [nginx] }
     - { role: logrotate, tags: [logrotate] }
     - { role: composer, tags: [composer] }
-    - { role: laravel-setup-database, tags: [laravel, laravel-setup-database] }
-    - { role: laravel-setup-code, tags: [laravel, laravel-setup-code] }
-    - { role: laravel-install, tags: [laravel, laravel-install] }
-
-  tasks:
-    - name: Install Redis tools
-      apt:
-        name: redis-tools
-        state: present
+    - { role: cake-setup-database, tags: [cake, cake-setup-database] }
+    - { role: cake-setup-code, tags: [cake, cake-setup-code] }
+    - { role: cake-install, tags: [cake, cake-install] }

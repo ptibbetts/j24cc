@@ -8,7 +8,7 @@ show_usage() {
   echo "Usage: rollback.sh <environment> <app name>
 
 <environment> is the environment to deploy to ("staging", "production", etc)
-<app name> is the app to deploy (name defined in "laravel_apps")
+<app name> is the app to deploy (name defined in "cake_apps")
 For now <site name> is automatically set to example.com
 
 Available environments:

@@ -1,5 +1,5 @@
 # Define accompanying passwords/secrets in group_vars/staging/vault.yml
-laravel_apps:
+cake_apps:
   example.com:
     site_hosts:
       - canonical: staging.example.com

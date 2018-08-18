@@ -54,7 +54,7 @@ def post_up_message
   msg << "\n* Composer and Artisan commands need to be run on the virtual machine"
   msg << "\n  for any post-provision modifications."
   msg << "\n* You can SSH into the machine with `vagrant ssh`."
-  msg << "\n* Then navigate to the app at at `/srv/www/example.com/current`"
+  msg << "\n* Then navigate to the app inside `/srv/www/`"
 
   msg
 end

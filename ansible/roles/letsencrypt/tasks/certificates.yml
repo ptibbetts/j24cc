@@ -4,14 +4,14 @@
   args:
     creates: "{{ letsencrypt_keys_dir }}/{{ item.key }}.key"
   when: app_uses_letsencrypt
-  with_dict: "{{ laravel_apps }}"
+  with_dict: "{{ cake_apps }}"
 
 - name: Ensure correct permissions on private keys
   file:
     path: "{{ letsencrypt_keys_dir }}/{{ item.key }}.key"
     mode: 0600
   when: app_uses_letsencrypt
-  with_dict: "{{ laravel_apps }}"
+  with_dict: "{{ cake_apps }}"
 
 - name: Generate Lets Encrypt certificate IDs
   shell: |
@@ -21,7 +21,7 @@
   register: generate_cert_ids
   changed_when: false
   when: app_uses_letsencrypt
-  with_dict: "{{ laravel_apps }}"
+  with_dict: "{{ cake_apps }}"
   tags: [laravel, laravel-setup, nginx-includes]
 
 - name: Generate CSRs
@@ -30,7 +30,7 @@
     executable: /bin/bash
     creates: "{{ acme_tiny_data_directory }}/csrs/{{ item.key }}-{{ letsencrypt_cert_ids[item.key] }}.csr"
   when: app_uses_letsencrypt
-  with_dict: "{{ laravel_apps }}"
+  with_dict: "{{ cake_apps }}"
 
 - name: Generate certificate renewal script
   template:

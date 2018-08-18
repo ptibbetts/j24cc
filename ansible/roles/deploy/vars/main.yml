@@ -5,7 +5,7 @@ laravel_env_defaults:
   app_url: https://example.com
   log_channel: stack
   db_connection: mysql
-  db_host: localhost # override this in group_vars/environment/laravel_apps.yml
+  db_host: localhost # override this in group_vars/environment/cake_apps.yml
   db_port: 3306
   db_database: "{{ site | underscore }}_{{ env }}"
   db_username: "{{ site | underscore }}"
@@ -13,9 +13,6 @@ laravel_env_defaults:
   cache_driver: redis
   session_driver: redis
   queue_driver: redis
-  redis_host: 127.0.0.1 # override this in group_vars/environment/laravel_apps.yml
-  redis_password: "{{ vault_redis_password }}"
-  redis_port: 6379
   mail_driver: smtp
   mail_host: smtp.mailtrap.io
   mail_port: 2525
@@ -29,4 +26,4 @@ laravel_env_defaults:
   # mix_pusher_app_key:"${PUSHER_APP_KEY}"
   # mix_pusher_app_cluster:"${PUSHER_APP_CLUSTER}"
 
-site_env: "{{ laravel_env_defaults | combine(project.env | default({}), vault_laravel_apps[site].env) }}"
+site_env: "{{ laravel_env_defaults | combine(project.env | default({}), vault_cake_apps[site].env) }}"

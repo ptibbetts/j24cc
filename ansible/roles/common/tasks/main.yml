@@ -1,14 +1,14 @@
 ---
-- name: Validate laravel_apps
+- name: Validate cake_apps
   fail:
-    msg: "{{ lookup('template', 'laravel_apps.j2') }}"
-  when: laravel_apps.keys() | difference(vault_laravel_apps.keys()) | count
+    msg: "{{ lookup('template', 'cake_apps.j2') }}"
+  when: cake_apps.keys() | difference(vault_cake_apps.keys()) | count
   tags: [laravel]
 
 - name: Validate format of site_hosts
   fail:
     msg: "{{ lookup('template', 'site_hosts.j2') }}"
-  with_dict: "{{ laravel_apps }}"
+  with_dict: "{{ cake_apps }}"
   when: item.value.site_hosts | rejectattr('canonical', 'defined') | list | count
   tags: [letsencrypt, laravel]
 

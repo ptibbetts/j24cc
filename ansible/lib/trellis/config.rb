@@ -19,15 +19,15 @@ module Trellis
 
     def site_hosts
       @site_hosts ||= begin
-        laravel_apps.flat_map { |(_name, site)| site['site_hosts'] }.tap do |hosts|
+        cake_apps.flat_map { |(_name, site)| site['site_hosts'] }.tap do |hosts|
           fail_with message: template_content if malformed?(site_hosts: hosts)
         end
       end
     end
 
-    def laravel_apps
-      @laravel_apps ||= begin
-        content['laravel_apps'].tap do |sites|
+    def cake_apps
+      @cake_apps ||= begin
+        content['cake_apps'].tap do |sites|
           fail_with message: "No sites found in #{path}." if sites.to_h.empty?
         end
       end
@@ -53,7 +53,7 @@ module Trellis
     end
 
     def path
-      File.join(@root_path, 'group_vars', 'development', 'laravel_apps.yml')
+      File.join(@root_path, 'group_vars', 'development', 'cake_apps.yml')
     end
 
     def template_content

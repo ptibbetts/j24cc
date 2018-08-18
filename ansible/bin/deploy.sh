@@ -8,7 +8,7 @@ show_usage() {
   echo "Usage: deploy <environment> <app name> [options]
 
 <environment> is the environment to deploy to ("staging", "production", etc)
-<app name> is the app to deploy (name defined in "laravel_apps")
+<app name> is the app to deploy (name defined in "cake_apps")
 [options] is any number of parameters that will be passed to ansible-playbook
 
 Available environments:

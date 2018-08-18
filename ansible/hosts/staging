@@ -9,6 +9,3 @@ staging.example.com
 
 [database]
 staging.example.com
-
-[redis]
-staging.example.com

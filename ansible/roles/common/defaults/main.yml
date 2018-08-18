@@ -9,6 +9,7 @@ apt_packages_default:
   - git-core
   - dbus
   - libnss-myhostname
+  - htop
 
 apt_packages_custom: []
 apt_packages: "{{ apt_packages_default + apt_packages_custom }}"
