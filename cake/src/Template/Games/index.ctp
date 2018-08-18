@@ -18,10 +18,12 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('igdb_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('slug') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('rating') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('popularity') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cover') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -31,10 +33,12 @@
             <?php foreach ($games as $game): ?>
             <tr>
                 <td><?= $this->Number->format($game->id) ?></td>
+                <td><?= $this->Number->format($game->igdb_id) ?></td>
                 <td><?= h($game->name) ?></td>
                 <td><?= h($game->slug) ?></td>
                 <td><?= $this->Number->format($game->rating) ?></td>
                 <td><?= $this->Number->format($game->popularity) ?></td>
+                <td><?= h($game->cover) ?></td>
                 <td><?= h($game->created) ?></td>
                 <td><?= h($game->modified) ?></td>
                 <td class="actions">

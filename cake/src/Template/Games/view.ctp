@@ -71,6 +71,8 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Game Id') ?></th>
                 <th scope="col"><?= __('Url') ?></th>
+                <th scope="col"><?= __('Created') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($game->websites as $websites): ?>
@@ -78,6 +80,8 @@
                 <td><?= h($websites->id) ?></td>
                 <td><?= h($websites->game_id) ?></td>
                 <td><?= h($websites->url) ?></td>
+                <td><?= h($websites->created) ?></td>
+                <td><?= h($websites->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Websites', 'action' => 'view', $websites->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Websites', 'action' => 'edit', $websites->id]) ?>

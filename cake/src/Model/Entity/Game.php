@@ -7,11 +7,13 @@ use Cake\ORM\Entity;
  * Game Entity
  *
  * @property int $id
+ * @property int $igdb_id
  * @property string $name
  * @property string $slug
  * @property string $summary
  * @property float $rating
  * @property float $popularity
+ * @property string $cover
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -36,9 +38,9 @@ class Game extends Entity
         'summary' => true,
         'rating' => true,
         'popularity' => true,
+        'cover' => true,
         'created' => true,
         'modified' => true,
-        'websites' => true,
-        'cover' => true
+        'websites' => true
     ];
 }

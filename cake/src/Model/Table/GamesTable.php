@@ -9,7 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Games Model
  *
- * @property \App\Model\Table\WebsitesTable|\Cake\ORM\Association\HasMany $Websites
+ * @property |\Cake\ORM\Association\BelongsTo $Igdbs
+ * @property |\Cake\ORM\Association\HasMany $Websites
  *
  * @method \App\Model\Entity\Game get($primaryKey, $options = [])
  * @method \App\Model\Entity\Game newEntity($data = null, array $options = [])
@@ -35,7 +36,7 @@ class GamesTable extends Table
     {
         parent::initialize($config);
 
-        // $this->setTable('games');
+        $this->setTable('games');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
@@ -59,11 +60,6 @@ class GamesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('igdb_id')
-            ->requirePresence('igdb_id', 'create')
-            ->notEmpty('igdb_id');
-
-        $validator
             ->scalar('name')
             ->maxLength('name', 255)
             ->requirePresence('name', 'create')
@@ -73,23 +69,40 @@ class GamesTable extends Table
             ->scalar('slug')
             ->maxLength('slug', 255)
             ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
+            ->notEmpty('slug')
+            ->add('slug', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->scalar('summary')
-            ->requirePresence('summary', 'create')
             ->allowEmpty('summary');
 
         $validator
             ->decimal('rating')
-            ->requirePresence('rating', 'create')
             ->allowEmpty('rating');
 
         $validator
             ->decimal('popularity')
-            ->requirePresence('popularity', 'create')
-            ->notEmpty('popularity');
+            ->allowEmpty('popularity');
+
+        $validator
+            ->scalar('cover')
+            ->maxLength('cover', 255)
+            ->allowEmpty('cover');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['slug']));
+
+        return $rules;
     }
 }

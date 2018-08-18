@@ -23,11 +23,13 @@
     <fieldset>
         <legend><?= __('Edit Game') ?></legend>
         <?php
+            echo $this->Form->control('igdb_id');
             echo $this->Form->control('name');
             echo $this->Form->control('slug');
             echo $this->Form->control('summary');
             echo $this->Form->control('rating');
             echo $this->Form->control('popularity');
+            echo $this->Form->control('cover');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
