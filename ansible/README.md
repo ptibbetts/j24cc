@@ -82,6 +82,7 @@ Vagrant calls the Ansible script to provision a virtual machine for local develo
 
 ```shell
 vagrant up # start Vagrant
+vagrant ssh # log in to the development machine
 cd /srv/www/example.com/current # all Cake  & Composer commands to be ran here
 ```
 
